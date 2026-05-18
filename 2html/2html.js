@@ -22,18 +22,19 @@ $(document).ready(function(){
     $("body").find(`${vH1Tag},${vH2Tag}`).each(function(i, item){
         var $item = $(item);
         var tag = $item.get(0).tagName.toLowerCase();
+        var originalId = ($item.attr("id") || "").trim();
         var id = '';
         var className = '';
 
-        // 生成唯一ID（确保跳转目标唯一）
+        // 保留页面已有锚点ID，避免移动端目录的固定链接失效；缺失时再生成唯一ID
         if (tag === vH1Tag) {
             vH1Index++;
             vH2Index = 0;
-            id = `dir_1_${vH1Index}`;
+            id = originalId || `dir_1_${vH1Index}`;
             className = 'item_h1'; // 一级目录（加粗）
         } else if (tag === vH2Tag) {
             vH2Index++;
-            id = `dir_2_${vH1Index}_${vH2Index}`;
+            id = originalId || `dir_2_${vH1Index}_${vH2Index}`;
             className = 'item_h2'; // 二级目录（淡黑色）
         }
 
@@ -51,14 +52,24 @@ $(document).ready(function(){
     });
 
     // 目录点击跳转（避开顶部navbar，定位中上）
-    $(".anchor-link").click(function(e){
-        e.preventDefault();
-        var targetId = $(this).attr("href");
+    $(".anchor-link, .mobile-toc a").click(function(e){
+        var href = $(this).attr("href") || "";
+        if (href.charAt(0) !== "#") return;
+
+        var rawId = href.substring(1);
+        var target = document.getElementById(rawId);
+        if (!target) {
+            try {
+                target = document.getElementById(decodeURIComponent(rawId));
+            } catch (err) {}
+        }
         // 验证目标存在（避免跳转失效）
-        if ($(targetId).length === 0) return;
-        
+        if (!target) return;
+
+        e.preventDefault();
+        var $target = $(target);
         var bannerHeight = $(".navbar").outerHeight() || 80; // 横幅高度
-        var finalTop = $(targetId).offset().top - bannerHeight - ($(window).height()/60);
+        var finalTop = $target.offset().top - bannerHeight - ($(window).height()/60);
         finalTop = Math.max(finalTop, 0); // 防止滚到页面外
         $("html,body").animate({scrollTop: finalTop}, 500);
     });
