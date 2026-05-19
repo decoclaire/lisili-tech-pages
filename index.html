@@ -1184,6 +1184,7 @@ function initMobileToc() {
   tocLinks.forEach(function (link) {
     link.addEventListener("click", function (event) {
       event.preventDefault();
+      event.stopImmediatePropagation();
       var label = link.textContent.trim();
       var hash = link.getAttribute("href") || "";
       var target = null;
@@ -1206,13 +1207,15 @@ function initMobileToc() {
       var details = link.closest("details");
 
       window.requestAnimationFrame(function () {
-        var navbar = document.querySelector(".navbar");
-        var offset = (navbar ? navbar.offsetHeight : 0) + 10;
-        var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
         if (details) details.open = false;
+        window.setTimeout(function () {
+          var navbar = document.querySelector(".navbar");
+          var offset = (navbar ? navbar.offsetHeight : 0) + 10;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+        }, 250);
       });
-    });
+    }, true);
   });
 }
 
