@@ -1177,7 +1177,7 @@ mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
   <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">京ICP备16005496号-6</a>
 </footer>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+function initMobileToc() {
   var tocLinks = document.querySelectorAll(".mobile-toc a");
   var headings = Array.prototype.slice.call(document.querySelectorAll("#write h3"));
 
@@ -1185,23 +1185,42 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener("click", function (event) {
       event.preventDefault();
       var label = link.textContent.trim();
-      var target = headings.find(function (heading) {
-        return heading.textContent.trim() === label;
-      });
+      var hash = link.getAttribute("href") || "";
+      var target = null;
+
+      if (hash.charAt(0) === "#") {
+        target = document.getElementById(decodeURIComponent(hash.slice(1)));
+      }
+
+      if (!target) {
+        target = headings.find(function (heading) {
+          var headingText = heading.textContent.trim();
+          return headingText === label ||
+            headingText.indexOf(label) !== -1 ||
+            label.indexOf(headingText) !== -1;
+        });
+      }
+
       if (!target) return;
 
       var details = link.closest("details");
-      if (details) details.open = false;
 
       window.requestAnimationFrame(function () {
         var navbar = document.querySelector(".navbar");
         var offset = (navbar ? navbar.offsetHeight : 0) + 10;
         var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
         window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+        if (details) details.open = false;
       });
     });
   });
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initMobileToc);
+} else {
+  initMobileToc();
+}
 </script>
 </body>
 </html>
