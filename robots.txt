@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lisili.tech/sitemap.xml
+Sitemap: https://lisili.site/sitemap.xml
