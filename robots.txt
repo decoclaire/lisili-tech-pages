@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Host: lisili.site
 Sitemap: https://lisili.site/sitemap.xml
