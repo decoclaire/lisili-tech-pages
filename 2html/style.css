@@ -180,6 +180,42 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 轻微阴影 */
 }
 
+.language-switcher {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #333;
+  font-size: 15px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.language-switcher a,
+.language-switcher span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  color: #225c9a;
+  text-decoration: none;
+}
+
+.language-switcher a:hover {
+  color: #087cd2;
+  text-decoration: underline;
+}
+
+.language-switcher .current {
+  color: #222;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.language-switcher .separator {
+  color: #9aa3ad;
+}
+
 /* Logo样式 */
 .navbar .logo {
   height: 100%;
@@ -219,6 +255,14 @@
   .navbar .nav-title {
     font-size: 16px;
   }
+  .language-switcher {
+    gap: 6px;
+    font-size: 14px;
+  }
+  .language-switcher a,
+  .language-switcher span {
+    min-height: 30px;
+  }
   #write {
     margin-top: 70px !important;
   }
@@ -241,3 +285,99 @@
   }
 }
 
+.mobile-toc {
+  display: none;
+}
+
+.site-record {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.profile-subtitle {
+  margin: 0.25rem 0 0.35rem;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.profile-links {
+  margin: 0 0 1rem;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.profile-links a {
+  color: #225c9a;
+  text-decoration: none;
+}
+
+.profile-links a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 640px) {
+  .profile-subtitle,
+  .profile-links {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .mobile-toc {
+    display: block;
+    margin: 14px 0 18px;
+    border: 1px solid #E6ECF1;
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .mobile-toc summary {
+    padding: 11px 12px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .mobile-toc summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-toc nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 0 12px 12px;
+  }
+
+  .mobile-toc a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: #F6F8FA;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  .site-record {
+    margin: 36px 0 18px !important;
+    padding: 0 16px;
+    gap: 6px;
+    font-size: 12px !important;
+    line-height: 1.6;
+  }
+
+  .site-record a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .site-record-separator {
+    display: none;
+  }
+}
