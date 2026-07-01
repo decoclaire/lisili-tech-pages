@@ -2,6 +2,8 @@
 var showNavBar = true;
 
 $(document).ready(function(){
+    var isEnglishPage = ($("html").attr("lang") || "").toLowerCase().indexOf("en") === 0;
+
     // 明确标题层级：h3=一级目录（如“基本信息”），h4=二级目录（如“主持科研项目”）
     var vH1Tag = 'h3'; // 一级目录（需加粗）
     var vH2Tag = 'h4'; // 二级目录（淡黑色）
@@ -104,24 +106,28 @@ $(document).ready(function(){
         "margin": "3px 0", // 紧凑间距
         "padding": "0",
         "list-style": "none",
-        "white-space": "nowrap", // 禁止文本换行
-        "text-overflow": "ellipsis", // 超长文本省略
-        "overflow": "hidden"
+        "white-space": isEnglishPage ? "normal" : "nowrap",
+        "text-overflow": isEnglishPage ? "clip" : "ellipsis",
+        "overflow": isEnglishPage ? "visible" : "hidden",
+        "text-indent": isEnglishPage ? "0" : "1.5rem",
+        "line-height": isEnglishPage ? "1.35" : ""
     });
     // 一级目录：加粗+深黑
     $(".nav_item.item_h1").css({
-        "padding": "2px 0",
+        "padding": isEnglishPage ? "4px 12px 4px 16px" : "2px 0",
         "text-decoration": "none",
         "color": "#333", // 深黑色
         "font-weight": "bold", // 加粗
-        "font-size": "14px"
+        "font-size": "14px",
+        "line-height": isEnglishPage ? "1.35" : ""
     });
     // 二级目录：淡黑+缩进
     $(".nav_item.item_h2").css({
-        "padding": "2px 0 2px 12px", // 仅左侧缩进12px
+        "padding": isEnglishPage ? "3px 12px 3px 28px" : "2px 0 2px 12px", // 仅左侧缩进12px
         "text-decoration": "none",
         "color": "#666", // 淡黑色（区分一级）
-        "font-size": "13px"
+        "font-size": "13px",
+        "line-height": isEnglishPage ? "1.35" : ""
     });
     // 当前项高亮（统一样式）
     $(".nav_item.current").css({

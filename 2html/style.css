@@ -158,12 +158,34 @@
         color: #087cd2  ;
         background:rgba(238,242,249,.5);
     }
-    .BlogAnchor a {
-        text-decoration: none;
-        color: #333;
-        display: block;
-        border-radius: 0px;
-    }
+.BlogAnchor a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    border-radius: 0px;
+}
+
+html[lang="en"] .BlogAnchor li,
+html[lang="en"] .BlogAnchor li .nav_item {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  text-indent: 0 !important;
+  line-height: 1.35 !important;
+}
+
+html[lang="en"] .BlogAnchor li .item_h1 {
+  padding: 4px 12px 4px 16px !important;
+}
+
+html[lang="en"] .BlogAnchor li .item_h2 {
+  padding: 3px 12px 3px 28px !important;
+}
+
+html[lang="en"] .BlogAnchor li .nav_item.current {
+  text-indent: 0 !important;
+}
+
 /* 顶部导航栏样式 */
 .navbar {
   position: fixed; /* 跟随滚动固定 */
