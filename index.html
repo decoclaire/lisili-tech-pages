@@ -1006,6 +1006,116 @@ mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
     display: none;
   }
 }
+
+/* Mobile reading and quick navigation */
+.mobile-actions {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body.typora-export #write {
+    font-size: 16px;
+    padding-bottom: 120px;
+    overflow-wrap: anywhere;
+  }
+
+  #write p {
+    line-height: 1.75;
+    text-align: left;
+  }
+
+  #write li {
+    margin: 0.45rem 0;
+    line-height: 1.75;
+  }
+
+  #write p.profile-subtitle {
+    margin: 0.25rem 0 0.65rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    text-align: left;
+  }
+
+  #write .profile-block {
+    display: block;
+    white-space: normal;
+  }
+
+  #write .profile-block + .profile-block {
+    margin-top: 0.85em;
+  }
+
+  #write .mobile-toc a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+
+  .navbar > img {
+    height: 38px !important;
+    max-width: 46vw;
+    object-fit: contain;
+  }
+
+  .navbar .language-switcher a,
+  .navbar .language-switcher .current {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .mobile-actions.is-visible {
+    position: fixed;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    z-index: 1100;
+    display: flex;
+    gap: 8px;
+  }
+
+  .mobile-actions button {
+    min-width: 52px;
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1px solid #dce3e9;
+    border-radius: 10px;
+    background: #fff;
+    color: #3e5368;
+    box-shadow: 0 2px 10px rgba(45, 65, 85, 0.12);
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  .mobile-actions button:focus-visible,
+  #write .mobile-toc a:focus-visible {
+    outline: 2px solid #4183c4;
+    outline-offset: 2px;
+  }
+
+  #write .mobile-toc.is-floating {
+    position: fixed;
+    right: 16px;
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+    left: 16px;
+    z-index: 1101;
+    max-height: calc(100vh - 152px);
+    max-height: calc(100dvh - 152px);
+    margin: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    box-shadow: 0 6px 28px rgba(45, 65, 85, 0.16);
+  }
+}
 </style>
 </head>
 <body class='typora-export'>
@@ -1028,7 +1138,7 @@ mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
       <p class="profile-subtitle">交通运输部公路科学研究院中青年首席专家、高级工程师</p>
       <div align="left"><img src="./image/profile.png" class="profile-img" alt="李思李个人照片"> </div>
       <p class="profile-updated">相关数据更新于<time datetime="2026-11-17">2026年11月17日</time></p>
-<details class="mobile-toc">
+<details id="mobile-toc" class="mobile-toc">
 <summary>目录</summary>
 <nav aria-label="手机目录">
 <a href="#基本信息">基本信息</a>
@@ -1046,7 +1156,7 @@ mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
 </details>
 <h3 id='基本信息'>基本信息</h3>
 <hr />
-<p>李思李（1988年1月生），辽宁丹东人，高级工程师，<strong>交通运输部公路科学研究院中青年首席专家</strong>。长期致力于极地冰雪环境交通基础设施建造养护、机场飞行区混凝土道面装配式不停航修复、水泥混凝土路面设计施工等方向的理论研究、技术攻关和工程实践。先后主持、承担 10 余项国家及省部级科技项目。其中，作为<strong>项目负责人主持国家自然科学基金项目 1 项、国家重点研发计划项目课题 1 项</strong>；作为分题负责人承担国家重点研发计划项目 3 项，省级交通运输厅科技项目 7 项。<strong>获省部级科技奖励特等奖 1 项、一等奖 6 项、二等奖 3 项、三等奖 2 项</strong>。参与编制《水泥混凝土路面技术标准》等国家标准 1 项，行业标准 2 项，地方及团体标准 3 项。<strong>授权美国 PCT 等国际专利 3 项（均为第一发明人）</strong>，<strong>中国发明专利 77 项（其中第一发明人 52 项）</strong>，登记软件著作权 14 项。发表高水平学术论文 19 篇，其中 <strong>SCI、EI 检索 7 篇</strong>。多次赴 TRB 年会（美国）、ISCP 国际混凝土路面技术论坛（德国）等国际会议上进行学术演讲。任中国公路学会青年专家委员会委员、WTC 机场道面建设与养护技术委员会副主席、WTC 机场基础设施技术委员会委员、《公路交通科技》青年编委、中国极地研究中心（中国极地研究所）双聘高级工程师、《Transportation Research Record》审稿专家。<strong>入选首届中国公路学会 “青年人才托举工程”，获中国公路学会青年科技奖、中国交通运输协会科技创新青年奖。中国第 42、43 次南极科学考察队队员</strong>。</p>
+<p><span class="profile-block">李思李（1988年1月生），辽宁丹东人，高级工程师，<strong>交通运输部公路科学研究院中青年首席专家</strong>。长期致力于极地冰雪环境交通基础设施建造养护、机场飞行区混凝土道面装配式不停航修复、水泥混凝土路面设计施工等方向的理论研究、技术攻关和工程实践。</span><span class="profile-block">先后主持、承担 10 余项国家及省部级科技项目。其中，作为<strong>项目负责人主持国家自然科学基金项目 1 项、国家重点研发计划项目课题 1 项</strong>；作为分题负责人承担国家重点研发计划项目 3 项，省级交通运输厅科技项目 7 项。</span><span class="profile-block"><strong>获省部级科技奖励特等奖 1 项、一等奖 6 项、二等奖 3 项、三等奖 2 项</strong>。参与编制《水泥混凝土路面技术标准》等国家标准 1 项，行业标准 2 项，地方及团体标准 3 项。<strong>授权美国 PCT 等国际专利 3 项（均为第一发明人）</strong>，<strong>中国发明专利 77 项（其中第一发明人 52 项）</strong>，登记软件著作权 14 项。发表高水平学术论文 19 篇，其中 <strong>SCI、EI 检索 7 篇</strong>。多次赴 TRB 年会（美国）、ISCP 国际混凝土路面技术论坛（德国）等国际会议上进行学术演讲。</span><span class="profile-block">任中国公路学会青年专家委员会委员、WTC 机场道面建设与养护技术委员会副主席、WTC 机场基础设施技术委员会委员、《公路交通科技》青年编委、中国极地研究中心（中国极地研究所）双聘高级工程师、《Transportation Research Record》审稿专家。<strong>入选首届中国公路学会 “青年人才托举工程”，获中国公路学会青年科技奖、中国交通运输协会科技创新青年奖。中国第 42、43 次南极科学考察队队员</strong>。</span></p>
 
 <h3 id='主要研究方向'>主要研究方向</h3>
 <hr />
@@ -1269,22 +1379,90 @@ mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
   <span class="site-record-separator" style="margin: 0 12px; color: inherit;">|</span>
   <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">京ICP备16005496号-6</a>
 </footer>
+<nav class="mobile-actions" aria-label="页面导航">
+  <button type="button" id="mobile-toc-toggle" aria-controls="mobile-toc" aria-expanded="false">目录</button>
+  <button type="button" id="mobile-back-to-top">返回顶部</button>
+</nav>
 <script>
 function initMobileToc() {
-  var tocLinks = document.querySelectorAll(".mobile-toc a");
+  var toc = document.querySelector(".mobile-toc");
+  var toolbar = document.querySelector(".mobile-actions");
+  var toggle = document.getElementById("mobile-toc-toggle");
+  var backToTop = document.getElementById("mobile-back-to-top");
+  if (!toc || !toolbar || !toggle || !backToTop) return;
+
+  var tocLinks = toc.querySelectorAll("a");
   var headings = Array.prototype.slice.call(document.querySelectorAll("#write h3"));
+
+  function scrollBehavior() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+  }
+
+  function closeToc(restoreFocus) {
+    toc.open = false;
+    toc.classList.remove("is-floating");
+    toggle.setAttribute("aria-expanded", "false");
+    if (restoreFocus) toggle.focus({ preventScroll: true });
+  }
+
+  function updateToolbar() {
+    var visible = window.pageYOffset > 320 || toc.classList.contains("is-floating");
+    toolbar.classList.toggle("is-visible", visible);
+  }
+
+  toggle.addEventListener("click", function () {
+    if (toc.open && toc.classList.contains("is-floating")) {
+      closeToc(true);
+      return;
+    }
+    toc.classList.add("is-floating");
+    toc.open = true;
+    toggle.setAttribute("aria-expanded", "true");
+    if (tocLinks.length) tocLinks[0].focus({ preventScroll: true });
+  });
+
+  toc.addEventListener("toggle", function () {
+    if (!toc.open) {
+      var floating = toc.classList.contains("is-floating");
+      toc.classList.remove("is-floating");
+      toggle.setAttribute("aria-expanded", "false");
+      if (floating) toggle.focus({ preventScroll: true });
+    }
+  });
+
+  backToTop.addEventListener("click", function () {
+    closeToc(false);
+    var heading = document.querySelector("#write h1");
+    if (heading) {
+      heading.setAttribute("tabindex", "-1");
+      heading.focus({ preventScroll: true });
+    }
+    window.scrollTo({ top: 0, behavior: scrollBehavior() });
+  });
+
+  document.addEventListener("pointerdown", function (event) {
+    if (toc.classList.contains("is-floating") &&
+        !toc.contains(event.target) && !toolbar.contains(event.target)) closeToc(false);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && toc.classList.contains("is-floating")) closeToc(true);
+  });
+
+  window.addEventListener("scroll", updateToolbar, { passive: true });
+  window.addEventListener("resize", function () {
+    if (!window.matchMedia("(max-width: 640px)").matches &&
+        toc.classList.contains("is-floating")) closeToc(false);
+    updateToolbar();
+  });
+  updateToolbar();
 
   tocLinks.forEach(function (link) {
     link.addEventListener("click", function (event) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
       var label = link.textContent.trim();
       var hash = link.getAttribute("href") || "";
-      var target = null;
-
-      if (hash.charAt(0) === "#") {
-        target = document.getElementById(decodeURIComponent(hash.slice(1)));
-      }
+      var target = hash.charAt(0) === "#" ?
+        document.getElementById(decodeURIComponent(hash.slice(1))) : null;
 
       if (!target) {
         target = headings.find(function (heading) {
@@ -1294,19 +1472,20 @@ function initMobileToc() {
             label.indexOf(headingText) !== -1;
         });
       }
-
       if (!target) return;
 
-      var details = link.closest("details");
-
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      closeToc(false);
       window.requestAnimationFrame(function () {
-        if (details) details.open = false;
-        window.setTimeout(function () {
+        window.requestAnimationFrame(function () {
           var navbar = document.querySelector(".navbar");
           var offset = (navbar ? navbar.offsetHeight : 0) + 10;
           var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-          window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
-        }, 250);
+          target.setAttribute("tabindex", "-1");
+          target.focus({ preventScroll: true });
+          window.scrollTo({ top: Math.max(top, 0), behavior: scrollBehavior() });
+        });
       });
     }, true);
   });
