@@ -1006,6 +1006,116 @@ mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
     display: none;
   }
 }
+
+/* Mobile reading and quick navigation */
+.mobile-actions {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body.typora-export #write {
+    font-size: 16px;
+    padding-bottom: 120px;
+    overflow-wrap: anywhere;
+  }
+
+  #write p {
+    line-height: 1.75;
+    text-align: left;
+  }
+
+  #write li {
+    margin: 0.45rem 0;
+    line-height: 1.75;
+  }
+
+  #write p.profile-subtitle {
+    margin: 0.25rem 0 0.65rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    text-align: left;
+  }
+
+  #write .profile-block {
+    display: block;
+    white-space: normal;
+  }
+
+  #write .profile-block + .profile-block {
+    margin-top: 0.85em;
+  }
+
+  #write .mobile-toc a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+  }
+
+  .navbar > img {
+    height: 38px !important;
+    max-width: 46vw;
+    object-fit: contain;
+  }
+
+  .navbar .language-switcher a,
+  .navbar .language-switcher .current {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .mobile-actions.is-visible {
+    position: fixed;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    z-index: 1100;
+    display: flex;
+    gap: 8px;
+  }
+
+  .mobile-actions button {
+    min-width: 52px;
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1px solid #dce3e9;
+    border-radius: 10px;
+    background: #fff;
+    color: #3e5368;
+    box-shadow: 0 2px 10px rgba(45, 65, 85, 0.12);
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  .mobile-actions button:focus-visible,
+  #write .mobile-toc a:focus-visible {
+    outline: 2px solid #4183c4;
+    outline-offset: 2px;
+  }
+
+  #write .mobile-toc.is-floating {
+    position: fixed;
+    right: 16px;
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+    left: 16px;
+    z-index: 1101;
+    max-height: calc(100vh - 152px);
+    max-height: calc(100dvh - 152px);
+    margin: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    box-shadow: 0 6px 28px rgba(45, 65, 85, 0.16);
+  }
+}
 </style>
 </head>
 <body class='typora-export'>
@@ -1028,7 +1138,7 @@ mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
       <p class="profile-subtitle">Young/Mid-Career Chief Expert and Senior Engineer, Research Institute of Highway, Ministry of Transport</p>
       <div align="left"><img src="/image/profile.png" class="profile-img" alt="Portrait of Sili Li"> </div>
       <p class="profile-updated">Profile data updated on <time datetime="2026-11-17">November 17, 2026</time></p>
-<details class="mobile-toc">
+<details id="mobile-toc" class="mobile-toc">
 <summary>Contents</summary>
 <nav aria-label="Mobile contents">
 <a href="#profile">Profile</a>
@@ -1046,7 +1156,7 @@ mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
 </details>
 <h3 id='profile'>Profile</h3>
 <hr />
-<p>Sili Li (born January 1988, Dandong, Liaoning) is a Senior Engineer and a <strong>young/mid-career chief expert at the Research Institute of Highway, Ministry of Transport</strong>. His long-term work focuses on theoretical research, key technology development, and engineering practice in the construction and maintenance of transportation infrastructure in polar ice and snow environments, prefabricated rapid repair of cement concrete pavements in airport flight areas under non-suspension conditions, and the design and construction of cement concrete pavements. He has led or participated in more than 10 national, provincial, and ministerial research projects. As principal investigator, he has <strong>led one National Natural Science Foundation of China project and one National Key R&amp;D Program task</strong>; as a subtask leader, he has participated in three National Key R&amp;D Program projects and seven provincial transportation science and technology projects. He has received <strong>one special prize, six first prizes, three second prizes, and two third prizes in provincial and ministerial science and technology awards</strong>. He has contributed to one national standard, two industry standards, and three local or group standards, including the Technical Standard for Cement Concrete Pavement. He has been granted <strong>three international patents, including U.S. and PCT-related patents, all as first inventor</strong>, <strong>77 Chinese invention patents, including 52 as first inventor</strong>, and 14 software copyrights. He has published 19 high-level academic papers, including <strong>seven indexed by SCI or EI</strong>. He has delivered academic presentations at international conferences including the TRB Annual Meeting in the United States and the ISCP International Conference on Concrete Pavements in Germany. He serves as a member of the Youth Expert Committee of the China Highway and Transportation Society, Vice Chair of the WTC Technical Committee on Airport Pavement Construction and Maintenance, a member of the WTC Technical Committee on Airport Infrastructure, a youth editorial board member of Journal of Highway and Transportation Research and Development, a jointly appointed Senior Engineer at the Polar Research Institute of China, and a reviewer for <em>Transportation Research Record</em>. He was selected for the first Young Talent Support Program of the China Highway and Transportation Society, received the Youth Science and Technology Award from the China Highway and Transportation Society and the Science and Technology Innovation Youth Award from the China Communications and Transportation Association, and is a member of China's 42nd and 43rd Antarctic Scientific Expedition Teams.</p>
+<p><span class="profile-block">Sili Li (born January 1988, Dandong, Liaoning) is a Senior Engineer and a <strong>young/mid-career chief expert at the Research Institute of Highway, Ministry of Transport</strong>. His long-term work focuses on theoretical research, key technology development, and engineering practice in the construction and maintenance of transportation infrastructure in polar ice and snow environments, prefabricated rapid repair of cement concrete pavements in airport flight areas under non-suspension conditions, and the design and construction of cement concrete pavements.</span><span class="profile-block"> He has led or participated in more than 10 national, provincial, and ministerial research projects. As principal investigator, he has <strong>led one National Natural Science Foundation of China project and one National Key R&amp;D Program task</strong>; as a subtask leader, he has participated in three National Key R&amp;D Program projects and seven provincial transportation science and technology projects.</span><span class="profile-block"> He has received <strong>one special prize, six first prizes, three second prizes, and two third prizes in provincial and ministerial science and technology awards</strong>. He has contributed to one national standard, two industry standards, and three local or group standards, including the Technical Standard for Cement Concrete Pavement. He has been granted <strong>three international patents, including U.S. and PCT-related patents, all as first inventor</strong>, <strong>77 Chinese invention patents, including 52 as first inventor</strong>, and 14 software copyrights. He has published 19 high-level academic papers, including <strong>seven indexed by SCI or EI</strong>. He has delivered academic presentations at international conferences including the TRB Annual Meeting in the United States and the ISCP International Conference on Concrete Pavements in Germany.</span><span class="profile-block"> He serves as a member of the Youth Expert Committee of the China Highway and Transportation Society, Vice Chair of the WTC Technical Committee on Airport Pavement Construction and Maintenance, a member of the WTC Technical Committee on Airport Infrastructure, a youth editorial board member of Journal of Highway and Transportation Research and Development, a jointly appointed Senior Engineer at the Polar Research Institute of China, and a reviewer for <em>Transportation Research Record</em>. He was selected for the first Young Talent Support Program of the China Highway and Transportation Society, received the Youth Science and Technology Award from the China Highway and Transportation Society and the Science and Technology Innovation Youth Award from the China Communications and Transportation Association, and is a member of China's 42nd and 43rd Antarctic Scientific Expedition Teams.</span></p>
 
 <h3 id='research-areas'>Research Areas</h3>
 <hr />
@@ -1269,22 +1379,90 @@ mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
   <span class="site-record-separator" style="margin: 0 12px; color: inherit;">|</span>
   <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">京ICP备16005496号-6</a>
 </footer>
+<nav class="mobile-actions" aria-label="Page navigation">
+  <button type="button" id="mobile-toc-toggle" aria-controls="mobile-toc" aria-expanded="false">Contents</button>
+  <button type="button" id="mobile-back-to-top">Top</button>
+</nav>
 <script>
 function initMobileToc() {
-  var tocLinks = document.querySelectorAll(".mobile-toc a");
+  var toc = document.querySelector(".mobile-toc");
+  var toolbar = document.querySelector(".mobile-actions");
+  var toggle = document.getElementById("mobile-toc-toggle");
+  var backToTop = document.getElementById("mobile-back-to-top");
+  if (!toc || !toolbar || !toggle || !backToTop) return;
+
+  var tocLinks = toc.querySelectorAll("a");
   var headings = Array.prototype.slice.call(document.querySelectorAll("#write h3"));
+
+  function scrollBehavior() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+  }
+
+  function closeToc(restoreFocus) {
+    toc.open = false;
+    toc.classList.remove("is-floating");
+    toggle.setAttribute("aria-expanded", "false");
+    if (restoreFocus) toggle.focus({ preventScroll: true });
+  }
+
+  function updateToolbar() {
+    var visible = window.pageYOffset > 320 || toc.classList.contains("is-floating");
+    toolbar.classList.toggle("is-visible", visible);
+  }
+
+  toggle.addEventListener("click", function () {
+    if (toc.open && toc.classList.contains("is-floating")) {
+      closeToc(true);
+      return;
+    }
+    toc.classList.add("is-floating");
+    toc.open = true;
+    toggle.setAttribute("aria-expanded", "true");
+    if (tocLinks.length) tocLinks[0].focus({ preventScroll: true });
+  });
+
+  toc.addEventListener("toggle", function () {
+    if (!toc.open) {
+      var floating = toc.classList.contains("is-floating");
+      toc.classList.remove("is-floating");
+      toggle.setAttribute("aria-expanded", "false");
+      if (floating) toggle.focus({ preventScroll: true });
+    }
+  });
+
+  backToTop.addEventListener("click", function () {
+    closeToc(false);
+    var heading = document.querySelector("#write h1");
+    if (heading) {
+      heading.setAttribute("tabindex", "-1");
+      heading.focus({ preventScroll: true });
+    }
+    window.scrollTo({ top: 0, behavior: scrollBehavior() });
+  });
+
+  document.addEventListener("pointerdown", function (event) {
+    if (toc.classList.contains("is-floating") &&
+        !toc.contains(event.target) && !toolbar.contains(event.target)) closeToc(false);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && toc.classList.contains("is-floating")) closeToc(true);
+  });
+
+  window.addEventListener("scroll", updateToolbar, { passive: true });
+  window.addEventListener("resize", function () {
+    if (!window.matchMedia("(max-width: 640px)").matches &&
+        toc.classList.contains("is-floating")) closeToc(false);
+    updateToolbar();
+  });
+  updateToolbar();
 
   tocLinks.forEach(function (link) {
     link.addEventListener("click", function (event) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
       var label = link.textContent.trim();
       var hash = link.getAttribute("href") || "";
-      var target = null;
-
-      if (hash.charAt(0) === "#") {
-        target = document.getElementById(decodeURIComponent(hash.slice(1)));
-      }
+      var target = hash.charAt(0) === "#" ?
+        document.getElementById(decodeURIComponent(hash.slice(1))) : null;
 
       if (!target) {
         target = headings.find(function (heading) {
@@ -1294,19 +1472,20 @@ function initMobileToc() {
             label.indexOf(headingText) !== -1;
         });
       }
-
       if (!target) return;
 
-      var details = link.closest("details");
-
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      closeToc(false);
       window.requestAnimationFrame(function () {
-        if (details) details.open = false;
-        window.setTimeout(function () {
+        window.requestAnimationFrame(function () {
           var navbar = document.querySelector(".navbar");
           var offset = (navbar ? navbar.offsetHeight : 0) + 10;
           var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-          window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
-        }, 250);
+          target.setAttribute("tabindex", "-1");
+          target.focus({ preventScroll: true });
+          window.scrollTo({ top: Math.max(top, 0), behavior: scrollBehavior() });
+        });
       });
     }, true);
   });
